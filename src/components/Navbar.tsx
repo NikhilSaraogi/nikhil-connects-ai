@@ -49,8 +49,10 @@ const Navbar = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
-              <Button variant="outline" className="glow-primary">
-                Hire Me
+              <Button variant="outline" className="glow-primary" asChild>
+                <a href="mailto:nikhilsarawgi9616@gmail.com?subject=Hiring Inquiry&body=Hi Nikhil, I'm interested in discussing a potential opportunity with you.">
+                  Hire Me
+                </a>
               </Button>
             </div>
           </div>
@@ -83,8 +85,10 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="px-3 py-2">
-                <Button variant="outline" className="w-full glow-primary">
-                  Hire Me
+                <Button variant="outline" className="w-full glow-primary" asChild>
+                  <a href="mailto:nikhilsarawgi9616@gmail.com?subject=Hiring Inquiry&body=Hi Nikhil, I'm interested in discussing a potential opportunity with you.">
+                    Hire Me
+                  </a>
                 </Button>
               </div>
             </div>

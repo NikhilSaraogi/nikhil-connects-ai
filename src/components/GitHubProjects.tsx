@@ -65,7 +65,7 @@ const GitHubProjects = () => {
 
   if (loading) {
     return (
-      <section id="projects" className="py-20 bg-muted/5">
+      <section className="py-20 bg-muted/5">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -100,7 +100,7 @@ const GitHubProjects = () => {
 
   if (error) {
     return (
-      <section id="projects" className="py-20 bg-muted/5">
+      <section className="py-20 bg-muted/5">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
@@ -114,7 +114,7 @@ const GitHubProjects = () => {
   }
 
   return (
-    <section id="projects" className="py-20 bg-muted/5">
+    <section className="py-20 bg-muted/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">

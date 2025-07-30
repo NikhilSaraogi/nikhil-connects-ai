@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import About from '@/components/About';
 import Experience from '@/components/Experience';
 import GitHubProjects from '@/components/GitHubProjects';
 import Skills from '@/components/Skills';
@@ -10,11 +11,24 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <main>
-        <Hero />
-        <Experience />
-        <GitHubProjects />
-        <Skills />
-        <Contact />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="experience">
+          <Experience />
+        </section>
+        <section id="projects">
+          <GitHubProjects />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </main>
       
       {/* Footer */}
