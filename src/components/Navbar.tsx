@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
@@ -44,11 +45,25 @@ const Navbar = () => {
                   key={item.name}
                   href={item.href}
                   className="text-muted-foreground hover:text-primary transition-colors duration-300 relative group"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      const offset = 80;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - offset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                 >
                   {item.name}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
+              <ThemeToggle />
               <Button variant="outline" className="glow-primary" asChild>
                 <a href="mailto:nikhilsarawgi9616@gmail.com?subject=Hiring Inquiry&body=Hi Nikhil, I'm interested in discussing a potential opportunity with you.">
                   Hire Me
@@ -79,11 +94,27 @@ const Navbar = () => {
                   key={item.name}
                   href={item.href}
                   className="block px-3 py-2 text-muted-foreground hover:text-primary transition-colors duration-300"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    const element = document.querySelector(item.href);
+                    if (element) {
+                      const offset = 80;
+                      const elementPosition = element.getBoundingClientRect().top;
+                      const offsetPosition = elementPosition + window.pageYOffset - offset;
+                      window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                      });
+                    }
+                  }}
                 >
                   {item.name}
                 </a>
               ))}
+              <div className="px-3 py-2">
+                <ThemeToggle />
+              </div>
               <div className="px-3 py-2">
                 <Button variant="outline" className="w-full glow-primary" asChild>
                   <a href="mailto:nikhilsarawgi9616@gmail.com?subject=Hiring Inquiry&body=Hi Nikhil, I'm interested in discussing a potential opportunity with you.">

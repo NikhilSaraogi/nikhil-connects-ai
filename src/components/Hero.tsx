@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import Scene3D from '@/components/Scene3D';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -123,55 +124,81 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right side - Profile image/3D element */}
+          {/* Right side - Enhanced 3D Profile Display */}
           <div className="relative animate-slide-in-right">
             <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
-              {/* Glowing orb background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-cyber/20 rounded-full animate-pulse-glow" />
+              {/* 3D Background Scene */}
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <Suspense fallback={<div className="w-full h-full bg-gradient-primary rounded-full animate-pulse" />}>
+                  <Scene3D />
+                </Suspense>
+              </div>
               
               {/* Tech stack badges floating around */}
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 z-10">
                 {[
-                  { text: 'Python', position: 'top-4 left-4', color: 'bg-accent' },
-                  { text: 'Data Science', position: 'top-1/4 left-2', color: 'bg-secondary' },
-                  { text: 'LLMs', position: 'top-8 right-8', color: 'bg-primary' },
-                  { text: 'MCP', position: 'bottom-4 left-48', color: 'bg-cyber' },
-                  { text: 'FastAPI', position: 'bottom-12 left-8', color: 'bg-secondary' },
-                  { text: 'ML/AI', position: 'bottom-4 right-4', color: 'bg-cyber' },
-                  { text: 'MongoDB', position: 'left-4 top-1/2', color: 'bg-accent' },
-                  { text: 'MQTT', position: 'top-4 left-40', color: 'bg-accent' },
-                  { text: 'Flask', position: 'top-1/2 right-8', color: 'bg-secondary' },
-                  { text: 'VectorDB', position: 'right-4 top-1/3', color: 'bg-primary' }
+                  { text: 'Python', position: 'top-4 left-4', color: 'bg-accent/90', delay: 0 },
+                  { text: 'Data Science', position: 'top-1/4 left-2', color: 'bg-secondary/90', delay: 0.5 },
+                  { text: 'LLMs', position: 'top-8 right-8', color: 'bg-primary/90', delay: 1 },
+                  { text: 'MCP', position: 'bottom-4 left-48', color: 'bg-cyber/90', delay: 1.5 },
+                  { text: 'FastAPI', position: 'bottom-12 left-8', color: 'bg-secondary/90', delay: 2 },
+                  { text: 'ML/AI', position: 'bottom-4 right-4', color: 'bg-cyber/90', delay: 2.5 },
+                  { text: 'MongoDB', position: 'left-4 top-1/2', color: 'bg-accent/90', delay: 3 },
+                  { text: 'MQTT', position: 'top-4 left-40', color: 'bg-accent/90', delay: 3.5 },
+                  { text: 'Flask', position: 'top-1/2 right-8', color: 'bg-secondary/90', delay: 4 },
+                  { text: 'VectorDB', position: 'right-4 top-1/3', color: 'bg-primary/90', delay: 4.5 }
                 ].map((badge, index) => (
                   <Badge
                     key={index}
-                    className={`absolute ${badge.position} ${badge.color} animate-float`}
-                    style={{ animationDelay: `${index * 0.5}s` }}
+                    className={`absolute ${badge.position} ${badge.color} backdrop-blur-sm border border-white/20 animate-float shadow-lg hover:scale-110 transition-transform duration-300`}
+                    style={{ 
+                      animationDelay: `${badge.delay}s`,
+                      animationDuration: `${4 + Math.random() * 2}s`
+                    }}
                   >
                     {badge.text}
                   </Badge>
                 ))}
               </div>
 
-              {/* Central profile area - Profile Picture */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-48 h-48 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-primary/40 shadow-2xl group-hover:border-accent/40 transition-all duration-300">
-                  {/* Profile Picture Container */}
-                  <div className="w-44 h-44 rounded-full overflow-hidden bg-gradient-to-br from-card to-muted border-2 border-border/30 flex items-center justify-center relative">
-                    {/* Placeholder for profile image - replace with actual image */}
-                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                      <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                        <img 
-                          src="/pic.jpeg"  // <-- UPDATE path here
-                          alt="Profile"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+              {/* Enhanced Central Profile Area */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="w-48 h-48 bg-gradient-to-br from-primary/20 via-accent/20 to-cyber/20 rounded-full flex items-center justify-center backdrop-blur-md border-2 border-primary/40 shadow-2xl hover:border-accent/60 transition-all duration-500 hover:scale-105">
+                  {/* Profile Picture Container with Enhanced Effects */}
+                  <div className="w-44 h-44 rounded-full overflow-hidden bg-gradient-to-br from-card/80 to-muted/80 border-2 border-border/30 flex items-center justify-center relative backdrop-blur-sm">
+                    {/* Profile Image */}
+                    <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
+                      <img 
+                        src="/pic.jpeg"
+                        alt="Nikhil Saraogi Profile"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                      {/* Multi-layered AI scanning effects */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+                      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-cyber/5 to-transparent animate-pulse" style={{ animationDelay: '2s' }}></div>
+                      
+                      {/* Holographic border effect */}
+                      <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-primary via-accent to-cyber bg-clip-border animate-spin" style={{ animationDuration: '8s' }}></div>
                     </div>
-                    {/* AI scanning overlay effect */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse"></div>
                   </div>
                 </div>
+              </div>
+
+              {/* Neural Network Connections */}
+              <div className="absolute inset-0 pointer-events-none">
+                {[...Array(8)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse"
+                    style={{
+                      left: `${20 + (i * 60 / 8)}%`,
+                      top: `${Math.sin(i) * 20 + 50}%`,
+                      transform: `rotate(${i * 45}deg)`,
+                      animationDelay: `${i * 0.2}s`
+                    }}
+                  />
+                ))}
               </div>
             </div>
           </div>
