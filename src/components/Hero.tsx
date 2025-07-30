@@ -92,11 +92,15 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Button variant="default" size="lg" className="glow-primary">
-                View Projects
+              <Button variant="default" size="lg" className="glow-primary" asChild>
+                <a href="https://github.com/NikhilSaraogi" target="_blank" rel="noopener noreferrer">
+                  View Projects
+                </a>
               </Button>
-              <Button variant="outline" size="lg" className="transition-bounce hover:glow-accent">
-                Download CV
+              <Button variant="outline" size="lg" className="transition-bounce hover:glow-accent" asChild>
+                <a href="https://drive.google.com/file/d/1M3DlqNXsKOafchLmyF6iKei8NJAQIYHe/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  Download CV
+                </a>
               </Button>
             </div>
 
@@ -140,11 +144,19 @@ const Hero = () => {
                 ))}
               </div>
 
-              {/* Central profile area */}
+              {/* Central profile area - Profile Picture */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-40 h-40 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center backdrop-blur-sm border border-primary/20">
-                  <div className="text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                    NS
+                <div className="w-48 h-48 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-primary/40 shadow-2xl group-hover:border-accent/40 transition-all duration-300">
+                  {/* Profile Picture Container */}
+                  <div className="w-44 h-44 rounded-full overflow-hidden bg-gradient-to-br from-card to-muted border-2 border-border/30 flex items-center justify-center relative">
+                    {/* Placeholder for profile image - replace with actual image */}
+                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                      <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        Add Your Photo
+                      </div>
+                    </div>
+                    {/* AI scanning overlay effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse"></div>
                   </div>
                 </div>
               </div>
