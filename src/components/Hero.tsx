@@ -9,8 +9,7 @@ const Hero = () => {
   
   const phrases = [
     'Data Scientist',
-    'ML Engineer',
-    'LLM Specialist', 
+    'Software Engineer', 
     'Python Developer',
     'AI Researcher'
   ];
@@ -128,11 +127,15 @@ const Hero = () => {
               <div className="absolute inset-0">
                 {[
                   { text: 'Python', position: 'top-4 left-4', color: 'bg-accent' },
+                  { text: 'Data Science', position: 'top-1/4 left-2', color: 'bg-secondary' },
                   { text: 'LLMs', position: 'top-8 right-8', color: 'bg-primary' },
+                  { text: 'MCP', position: 'bottom-4 left-48', color: 'bg-cyber' },
                   { text: 'FastAPI', position: 'bottom-12 left-8', color: 'bg-secondary' },
                   { text: 'ML/AI', position: 'bottom-4 right-4', color: 'bg-cyber' },
                   { text: 'MongoDB', position: 'left-4 top-1/2', color: 'bg-accent' },
-                  { text: 'Redis', position: 'right-4 top-1/3', color: 'bg-primary' }
+                  { text: 'MQTT', position: 'top-4 left-40', color: 'bg-accent' },
+                  { text: 'Flask', position: 'top-1/2 right-8', color: 'bg-secondary' },
+                  { text: 'VectorDB', position: 'right-4 top-1/3', color: 'bg-primary' }
                 ].map((badge, index) => (
                   <Badge
                     key={index}
@@ -152,7 +155,11 @@ const Hero = () => {
                     {/* Placeholder for profile image - replace with actual image */}
                     <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                       <div className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                        Add Your Photo
+                        <img 
+                          src="/pic.jpeg"  // <-- UPDATE path here
+                          alt="Profile"
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     </div>
                     {/* AI scanning overlay effect */}
