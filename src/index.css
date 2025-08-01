@@ -25,7 +25,7 @@ html {
   background: hsl(var(--primary) / 0.8);
 }
 
-/* AI-Themed Portfolio Design System - All colors MUST be HSL */
+/* Clean AI-Themed Portfolio Design System */
 
 @layer base {
   :root {
@@ -68,20 +68,11 @@ html {
 
     --radius: 0.75rem;
 
-/* AI-themed gradients */
+    /* Simple, clean gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-neural: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
     --gradient-matrix: linear-gradient(180deg, hsl(var(--background)), hsl(220 25% 12%));
     --gradient-card: linear-gradient(145deg, hsl(220 25% 10%), hsl(220 20% 12%));
-    
-    
-    /* AI-focused gradients */
-    --gradient-neural: linear-gradient(135deg, hsl(var(--primary)/80), hsl(var(--cyber)/60), hsl(var(--accent)/40));
-    --gradient-circuit: linear-gradient(90deg, transparent 0%, hsl(var(--primary)/20) 50%, transparent 100%);
-    --gradient-data-flow: linear-gradient(45deg, hsl(var(--primary)) 0%, hsl(var(--cyber)) 25%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 75%, hsl(var(--primary)) 100%);
-    --gradient-ai-mesh: radial-gradient(circle at 30% 70%, hsl(var(--primary)/15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, hsl(var(--cyber)/15) 0%, transparent 50%),
-                        linear-gradient(135deg, hsl(var(--background)) 0%, hsl(220 30% 10%) 100%);
     
     /* Glowing effects */
     --glow-primary: 0 0 20px hsl(var(--primary) / 0.5);
@@ -93,47 +84,32 @@ html {
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
-
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
-
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
-
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -165,7 +141,7 @@ html {
 }
 
 @layer components {
-  /* AI-themed component styles */
+  /* Simple, clean component styles */
   .glow-primary {
     box-shadow: var(--glow-primary);
   }
@@ -197,158 +173,4 @@ html {
   .transition-bounce {
     transition: var(--transition-bounce);
   }
-
-  /* Particle animation background */
-  .particles {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
-  }
-
-  /* AI-Focused Artistic Components */
-  .ai-background {
-    background: var(--gradient-ai-mesh);
-    position: relative;
-  }
-
-  .ai-background::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: 
-      radial-gradient(circle at 1px 1px, hsl(var(--primary)/30) 1px, transparent 0);
-    background-size: 20px 20px;
-    animation: circuit-flow 20s linear infinite;
-  }
-
-  .neural-network {
-    position: relative;
-    background: transparent;
-  }
-
-  .neural-network::before,
-  .neural-network::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-circuit);
-    animation: data-pulse 3s ease-in-out infinite;
-  }
-
-  .neural-network::after {
-    animation-delay: 1.5s;
-    transform: rotate(90deg);
-  }
-
-  .ai-card {
-    background: linear-gradient(145deg, hsl(var(--card)/80), hsl(var(--card)/60));
-    backdrop-filter: blur(20px);
-    border: 1px solid hsl(var(--primary)/20);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .ai-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-circuit);
-    animation: scan-line 3s ease-in-out infinite;
-  }
-
-  .ai-card:hover {
-    transform: translateY(-5px);
-    border-color: hsl(var(--primary)/40);
-    box-shadow: 
-      0 20px 40px hsl(var(--primary)/20),
-      0 0 60px hsl(var(--cyber)/10);
-  }
-
-  .ai-orb {
-    background: radial-gradient(circle, hsl(var(--primary)/30) 0%, hsl(var(--cyber)/20) 50%, transparent 100%);
-    animation: ai-pulse 4s ease-in-out infinite;
-    border-radius: 50%;
-    position: relative;
-  }
-
-  .ai-orb::before {
-    content: '';
-    position: absolute;
-    inset: 10%;
-    border-radius: 50%;
-    background: linear-gradient(45deg, transparent 30%, hsl(var(--primary)/40) 50%, transparent 70%);
-    animation: orb-rotate 6s linear infinite;
-  }
-
-  .data-stream {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .data-stream::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 100%;
-    background: var(--gradient-data-flow);
-    background-size: 50% 100%;
-    animation: stream-flow 4s linear infinite;
-    opacity: 0.3;
-  }
-
-  /* AI Animations */
-  @keyframes circuit-flow {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(20px, 20px); }
-  }
-
-  @keyframes data-pulse {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); }
-  }
-
-  @keyframes scan-line {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: -100%; }
-  }
-
-  @keyframes ai-pulse {
-    0%, 100% { 
-      transform: scale(1); 
-      filter: brightness(1) hue-rotate(0deg);
-    }
-    50% { 
-      transform: scale(1.1); 
-      filter: brightness(1.2) hue-rotate(10deg);
-    }
-  }
-
-  @keyframes orb-rotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-
-  @keyframes stream-flow {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0%); }
-  }
-
-  @keyframes neural-glow {
-    0%, 100% { 
-      box-shadow: 0 0 20px hsl(var(--primary)/40);
-    }
-    50% { 
-      box-shadow: 0 0 40px hsl(var(--cyber)/60), 0 0 60px hsl(var(--primary)/30);
-    }
-  }
+}
