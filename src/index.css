@@ -209,8 +209,6 @@ html {
     z-index: -1;
   }
 
-  }
-
   /* AI-Focused Artistic Components */
   .ai-background {
     background: var(--gradient-ai-mesh);
@@ -354,4 +352,3 @@ html {
       box-shadow: 0 0 40px hsl(var(--cyber)/60), 0 0 60px hsl(var(--primary)/30);
     }
   }
-}
