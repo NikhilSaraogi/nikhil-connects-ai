@@ -29,59 +29,59 @@ html {
 
 @layer base {
   :root {
-    /* Core AI-themed colors */
-    --background: 220 27% 8%;
-    --foreground: 220 15% 95%;
+    /* Artistic Light Theme */
+    --background: 45 100% 97%;
+    --foreground: 240 10% 15%;
 
-    --card: 220 25% 10%;
-    --card-foreground: 220 15% 95%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 15%;
 
-    --popover: 220 25% 10%;
-    --popover-foreground: 220 15% 95%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 15%;
 
-    /* AI Electric Blue Primary */
-    --primary: 195 100% 50%;
-    --primary-foreground: 220 27% 8%;
-    --primary-glow: 195 100% 70%;
+    /* Warm Coral Primary */
+    --primary: 15 86% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 15 86% 85%;
 
-    /* Neural Network Purple Secondary */
-    --secondary: 260 60% 45%;
-    --secondary-foreground: 220 15% 95%;
+    /* Soft Lavender Secondary */
+    --secondary: 270 50% 75%;
+    --secondary-foreground: 240 10% 15%;
 
-    /* Matrix Green Accent */
-    --accent: 150 100% 45%;
-    --accent-foreground: 220 27% 8%;
+    /* Mint Green Accent */
+    --accent: 160 60% 70%;
+    --accent-foreground: 240 10% 15%;
 
-    /* Cyber Cyan */
-    --cyber: 180 100% 50%;
-    --cyber-foreground: 220 27% 8%;
+    /* Soft Blue */
+    --soft-blue: 210 60% 80%;
+    --soft-blue-foreground: 240 10% 15%;
 
-    --muted: 220 20% 15%;
-    --muted-foreground: 220 10% 60%;
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 5% 45%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 220 15% 95%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 220 20% 20%;
-    --input: 220 20% 15%;
-    --ring: 195 100% 50%;
+    --border: 240 6% 85%;
+    --input: 240 6% 95%;
+    --ring: 15 86% 65%;
 
-    --radius: 0.75rem;
+    --radius: 1rem;
 
-    /* Simple, clean gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-neural: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--secondary)), hsl(var(--accent)));
-    --gradient-matrix: linear-gradient(180deg, hsl(var(--background)), hsl(220 25% 12%));
-    --gradient-card: linear-gradient(145deg, hsl(220 25% 10%), hsl(220 20% 12%));
+    /* Artistic gradients */
+    --gradient-sunrise: linear-gradient(135deg, hsl(15 86% 75%), hsl(35 95% 80%), hsl(55 85% 85%));
+    --gradient-ocean: linear-gradient(45deg, hsl(210 60% 85%), hsl(270 50% 80%), hsl(160 60% 75%));
+    --gradient-dreamy: linear-gradient(180deg, hsl(45 100% 97%), hsl(210 40% 95%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(240 10% 98%));
     
-    /* Glowing effects */
-    --glow-primary: 0 0 20px hsl(var(--primary) / 0.5);
-    --glow-accent: 0 0 15px hsl(var(--accent) / 0.4);
-    --glow-cyber: 0 0 25px hsl(var(--cyber) / 0.6);
+    /* Soft glowing effects */
+    --glow-warm: 0 8px 32px hsl(15 86% 65% / 0.2);
+    --glow-cool: 0 8px 32px hsl(210 60% 80% / 0.2);
+    --glow-mint: 0 8px 32px hsl(160 60% 70% / 0.2);
 
-    /* Animation timings */
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    /* Smooth animations */
+    --transition-gentle: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -131,7 +131,7 @@ html {
 
   body {
     @apply bg-background text-foreground;
-    background: var(--gradient-matrix);
+    background: var(--gradient-dreamy);
     min-height: 100vh;
   }
 
@@ -141,36 +141,52 @@ html {
 }
 
 @layer components {
-  /* Simple, clean component styles */
-  .glow-primary {
-    box-shadow: var(--glow-primary);
+  /* Artistic component styles */
+  .glow-warm {
+    box-shadow: var(--glow-warm);
   }
   
-  .glow-accent {
-    box-shadow: var(--glow-accent);
+  .glow-cool {
+    box-shadow: var(--glow-cool);
   }
   
-  .glow-cyber {
-    box-shadow: var(--glow-cyber);
+  .glow-mint {
+    box-shadow: var(--glow-mint);
   }
 
-  .gradient-primary {
-    background: var(--gradient-primary);
+  .gradient-sunrise {
+    background: var(--gradient-sunrise);
   }
   
-  .gradient-neural {
-    background: var(--gradient-neural);
+  .gradient-ocean {
+    background: var(--gradient-ocean);
   }
   
   .gradient-card {
     background: var(--gradient-card);
   }
 
-  .transition-smooth {
-    transition: var(--transition-smooth);
+  .transition-gentle {
+    transition: var(--transition-gentle);
   }
   
   .transition-bounce {
     transition: var(--transition-bounce);
+  }
+
+  /* Artistic effects */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
   }
 }
