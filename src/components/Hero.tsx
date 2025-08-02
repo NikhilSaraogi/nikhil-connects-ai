@@ -134,26 +134,56 @@ const Hero = () => {
                 </Suspense>
               </div>
               
-              {/* Tech stack badges floating around */}
+              {/* Artistic floating elements */}
+              <div className="absolute inset-0 z-5 pointer-events-none">
+                {/* Floating geometric shapes */}
+                {[...Array(6)].map((_, i) => (
+                  <div
+                    key={`shape-${i}`}
+                    className="absolute w-2 h-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full animate-float opacity-60"
+                    style={{
+                      left: `${15 + i * 15}%`,
+                      top: `${20 + Math.sin(i) * 30}%`,
+                      animationDelay: `${i * 0.8}s`,
+                      animationDuration: `${6 + i}s`
+                    }}
+                  />
+                ))}
+                
+                {/* Artistic light rays */}
+                {[...Array(4)].map((_, i) => (
+                  <div
+                    key={`ray-${i}`}
+                    className="absolute w-px h-16 bg-gradient-to-t from-transparent via-primary/20 to-transparent animate-pulse"
+                    style={{
+                      left: `${25 + i * 20}%`,
+                      top: `${10 + i * 10}%`,
+                      transform: `rotate(${i * 30}deg)`,
+                      animationDelay: `${i * 1.5}s`
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* Enhanced tech stack badges with better positioning */}
               <div className="absolute inset-0 z-10">
                 {[
-                  { text: 'Python', position: 'top-4 left-4', color: 'bg-accent/90', delay: 0 },
-                  { text: 'Data Science', position: 'top-1/4 left-2', color: 'bg-secondary/90', delay: 0.5 },
-                  { text: 'LLMs', position: 'top-8 right-8', color: 'bg-primary/90', delay: 1 },
-                  { text: 'MCP', position: 'bottom-4 left-48', color: 'bg-cyber/90', delay: 1.5 },
-                  { text: 'FastAPI', position: 'bottom-12 left-8', color: 'bg-secondary/90', delay: 2 },
-                  { text: 'ML/AI', position: 'bottom-4 right-4', color: 'bg-cyber/90', delay: 2.5 },
-                  { text: 'MongoDB', position: 'left-4 top-1/2', color: 'bg-accent/90', delay: 3 },
-                  { text: 'MQTT', position: 'top-4 left-40', color: 'bg-accent/90', delay: 3.5 },
-                  { text: 'Flask', position: 'top-1/2 right-8', color: 'bg-secondary/90', delay: 4 },
-                  { text: 'VectorDB', position: 'right-4 top-1/3', color: 'bg-primary/90', delay: 4.5 }
+                  { text: 'Python', position: 'top-6 left-6', color: 'bg-gradient-to-r from-primary/80 to-primary/60', delay: 0 },
+                  { text: 'AI/ML', position: 'top-16 right-8', color: 'bg-gradient-to-r from-accent/80 to-accent/60', delay: 0.5 },
+                  { text: 'LLMs', position: 'top-1/3 left-2', color: 'bg-gradient-to-r from-secondary/80 to-secondary/60', delay: 1 },
+                  { text: 'FastAPI', position: 'bottom-20 left-6', color: 'bg-gradient-to-r from-primary/80 to-primary/60', delay: 1.5 },
+                  { text: 'Data Science', position: 'bottom-6 right-6', color: 'bg-gradient-to-r from-accent/80 to-accent/60', delay: 2 },
+                  { text: 'VectorDB', position: 'top-1/2 right-4', color: 'bg-gradient-to-r from-secondary/80 to-secondary/60', delay: 2.5 },
+                  { text: 'MongoDB', position: 'bottom-1/3 left-8', color: 'bg-gradient-to-r from-primary/80 to-primary/60', delay: 3 },
+                  { text: 'Flask', position: 'top-20 left-20', color: 'bg-gradient-to-r from-accent/80 to-accent/60', delay: 3.5 }
                 ].map((badge, index) => (
                   <Badge
                     key={index}
-                    className={`absolute ${badge.position} ${badge.color} backdrop-blur-sm border border-white/20 animate-float shadow-lg hover:scale-110 transition-transform duration-300`}
+                    className={`absolute ${badge.position} ${badge.color} backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full`}
                     style={{ 
                       animationDelay: `${badge.delay}s`,
-                      animationDuration: `${4 + Math.random() * 2}s`
+                      animationDuration: `${5 + Math.random() * 3}s`,
+                      boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.2)'
                     }}
                   >
                     {badge.text}
