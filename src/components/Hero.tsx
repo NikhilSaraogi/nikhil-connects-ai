@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import Scene3D from '@/components/Scene3D';
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
@@ -35,20 +36,16 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Artistic floating elements */}
+      {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(12)].map((_, i) => (
+        {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full opacity-30 float-animation"
+            className="absolute w-1 h-1 bg-primary rounded-full animate-float"
             style={{
               left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${20 + Math.random() * 40}px`,
-              height: `${20 + Math.random() * 40}px`,
-              background: i % 3 === 0 ? 'hsl(15 86% 75%)' : i % 3 === 1 ? 'hsl(270 50% 80%)' : 'hsl(160 60% 75%)',
               animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${8 + Math.random() * 4}s`
+              animationDuration: `${4 + Math.random() * 4}s`
             }}
           />
         ))}
@@ -57,25 +54,24 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text content */}
-          <div className="text-center lg:text-left space-y-8 animate-slide-in-left">
-            <div className="space-y-6">
-              <p className="text-primary text-xl font-light tracking-wide">✨ Hello, I'm</p>
-              <h1 className="text-6xl lg:text-8xl font-light tracking-tight gradient-sunrise bg-clip-text text-transparent">
+          <div className="text-center lg:text-left space-y-6 animate-slide-in-left">
+            <div className="space-y-2">
+              <p className="text-primary text-lg font-medium">Hello, I'm</p>
+              <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-cyber bg-clip-text text-transparent">
                 Nikhil Saraogi
               </h1>
-              <div className="h-16 flex items-center justify-center lg:justify-start">
-                <div className="px-6 py-3 rounded-2xl glass-effect">
-                  <span className="text-3xl lg:text-4xl text-foreground font-light tracking-wide">
-                    {displayText}
-                    <span className="animate-pulse ml-2 text-primary">✦</span>
-                  </span>
-                </div>
+              <div className="h-8 flex items-center justify-center lg:justify-start">
+                <span className="text-2xl lg:text-3xl text-muted-foreground">
+                  {displayText}
+                  <span className="animate-pulse">|</span>
+                </span>
               </div>
             </div>
 
-            <p className="text-xl text-muted-foreground max-w-2xl font-light leading-relaxed">
-              Crafting beautiful AI-powered solutions and scalable data science systems. 
-              Building the future of industrial AI with elegance and precision.
+            <p className="text-lg text-muted-foreground max-w-2xl">
+              Specialized in building AI-powered solutions, LLM applications, and scalable 
+              data science systems. Currently architecting next-gen industrial AI at ExactSpace 
+              Technologies with expertise in transformers, vector databases, and agentic workflows.
             </p>
 
             {/* Contact info */}
@@ -95,95 +91,114 @@ const Hero = () => {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-6 justify-center lg:justify-start">
-              <Button variant="default" size="lg" className="glow-warm px-8 py-4 rounded-2xl font-light transition-gentle" asChild>
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
+              <Button variant="default" size="lg" className="glow-primary" asChild>
                 <a href="https://github.com/NikhilSaraogi" target="_blank" rel="noopener noreferrer">
-                  ✨ View Projects
+                  View Projects
                 </a>
               </Button>
-              <Button variant="outline" size="lg" className="hover:glow-cool transition-gentle px-8 py-4 rounded-2xl font-light" asChild>
+              <Button variant="outline" size="lg" className="transition-bounce hover:glow-accent" asChild>
                 <a href="https://drive.google.com/file/d/1M3DlqNXsKOafchLmyF6iKei8NJAQIYHe/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-                  📋 Download CV
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" className="hover:glow-mint transition-gentle px-8 py-4 rounded-2xl font-light" asChild>
-                <a href="mailto:nikhilsarawgi9616@gmail.com">
-                  💌 Hire Me
+                  Download CV
                 </a>
               </Button>
             </div>
 
             {/* Social links */}
-            <div className="flex gap-6 justify-center lg:justify-start">
-              <Button variant="ghost" size="icon" className="hover:glow-warm transition-gentle w-12 h-12 rounded-2xl" asChild>
+            <div className="flex gap-4 justify-center lg:justify-start">
+              <Button variant="ghost" size="icon" className="hover:glow-primary transition-smooth" asChild>
                 <a href="https://github.com/NikhilSaraogi" target="_blank" rel="noopener noreferrer">
-                  <Github className="w-6 h-6" />
+                  <Github className="w-5 h-5" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:glow-cool transition-gentle w-12 h-12 rounded-2xl" asChild>
+              <Button variant="ghost" size="icon" className="hover:glow-accent transition-smooth" asChild>
                 <a href="https://www.linkedin.com/in/nikhilsaraogi/" target="_blank" rel="noopener noreferrer">
-                  <Linkedin className="w-6 h-6" />
+                  <Linkedin className="w-5 h-5" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:glow-mint transition-gentle w-12 h-12 rounded-2xl" asChild>
+              <Button variant="ghost" size="icon" className="hover:glow-cyber transition-smooth" asChild>
                 <a href="mailto:nikhilsarawgi9616@gmail.com">
-                  <Mail className="w-6 h-6" />
+                  <Mail className="w-5 h-5" />
                 </a>
               </Button>
             </div>
           </div>
 
-          {/* Right side - Artistic Profile Display */}
+          {/* Right side - Enhanced 3D Profile Display */}
           <div className="relative animate-slide-in-right">
-            <div className="relative w-96 h-96 mx-auto lg:w-[500px] lg:h-[500px]">
-              {/* Artistic floating rings */}
-              <div className="absolute inset-8 rounded-full border-2 border-primary/20 opacity-60 float-animation" style={{ animationDuration: '8s' }} />
-              <div className="absolute inset-16 rounded-full border border-secondary/30 opacity-40 float-animation" style={{ animationDuration: '10s', animationDelay: '2s' }} />
-              <div className="absolute inset-24 rounded-full border border-accent/20 opacity-30 float-animation" style={{ animationDuration: '12s', animationDelay: '4s' }} />
+            <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
+              {/* 3D Background Scene */}
+              <div className="absolute inset-0 rounded-full overflow-hidden">
+                <Suspense fallback={<div className="w-full h-full bg-gradient-primary rounded-full animate-pulse" />}>
+                  <Scene3D />
+                </Suspense>
+              </div>
               
-              {/* Elegant skill badges */}
-              <div className="absolute inset-0">
+              {/* Tech stack badges floating around */}
+              <div className="absolute inset-0 z-10">
                 {[
-                  { text: 'Python', position: 'top-8 left-12', color: 'gradient-sunrise' },
-                  { text: 'AI/ML', position: 'top-16 right-16', color: 'gradient-ocean' },
-                  { text: 'Data Science', position: 'top-1/3 left-4', color: 'gradient-sunrise' },
-                  { text: 'LLMs', position: 'top-1/4 right-8', color: 'gradient-ocean' },
-                  { text: 'FastAPI', position: 'bottom-20 left-16', color: 'gradient-sunrise' },
-                  { text: 'MongoDB', position: 'bottom-16 right-20', color: 'gradient-ocean' },
-                  { text: 'Transformers', position: 'left-8 top-1/2', color: 'gradient-sunrise' },
-                  { text: 'Vector DB', position: 'right-12 top-1/2', color: 'gradient-ocean' }
+                  { text: 'Python', position: 'top-4 left-4', color: 'bg-accent/90', delay: 0 },
+                  { text: 'Data Science', position: 'top-1/4 left-2', color: 'bg-secondary/90', delay: 0.5 },
+                  { text: 'LLMs', position: 'top-8 right-8', color: 'bg-primary/90', delay: 1 },
+                  { text: 'MCP', position: 'bottom-4 left-48', color: 'bg-cyber/90', delay: 1.5 },
+                  { text: 'FastAPI', position: 'bottom-12 left-8', color: 'bg-secondary/90', delay: 2 },
+                  { text: 'ML/AI', position: 'bottom-4 right-4', color: 'bg-cyber/90', delay: 2.5 },
+                  { text: 'MongoDB', position: 'left-4 top-1/2', color: 'bg-accent/90', delay: 3 },
+                  { text: 'MQTT', position: 'top-4 left-40', color: 'bg-accent/90', delay: 3.5 },
+                  { text: 'Flask', position: 'top-1/2 right-8', color: 'bg-secondary/90', delay: 4 },
+                  { text: 'VectorDB', position: 'right-4 top-1/3', color: 'bg-primary/90', delay: 4.5 }
                 ].map((badge, index) => (
-                  <div
+                  <Badge
                     key={index}
-                    className={`absolute ${badge.position} px-4 py-2 rounded-full text-sm font-light glass-effect float-animation shadow-lg`}
-                    style={{ animationDelay: `${index * 0.8}s`, animationDuration: '6s' }}
+                    className={`absolute ${badge.position} ${badge.color} backdrop-blur-sm border border-white/20 animate-float shadow-lg hover:scale-110 transition-transform duration-300`}
+                    style={{ 
+                      animationDelay: `${badge.delay}s`,
+                      animationDuration: `${4 + Math.random() * 2}s`
+                    }}
                   >
                     {badge.text}
-                  </div>
+                  </Badge>
                 ))}
               </div>
 
-              {/* Central artistic profile area */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  {/* Artistic glow background */}
-                  <div className="absolute inset-0 w-64 h-64 gradient-ocean rounded-full opacity-20 blur-xl" />
-                  
-                  {/* Profile container */}
-                  <div className="relative w-56 h-56 rounded-full glass-effect p-2 glow-warm">
-                    <div className="w-full h-full rounded-full overflow-hidden relative">
+              {/* Enhanced Central Profile Area */}
+              <div className="absolute inset-0 flex items-center justify-center z-20">
+                <div className="w-48 h-48 bg-gradient-to-br from-primary/20 via-accent/20 to-cyber/20 rounded-full flex items-center justify-center backdrop-blur-md border-2 border-primary/40 shadow-2xl hover:border-accent/60 transition-all duration-500 hover:scale-105">
+                  {/* Profile Picture Container with Enhanced Effects */}
+                  <div className="w-44 h-44 rounded-full overflow-hidden bg-gradient-to-br from-card/80 to-muted/80 border-2 border-border/30 flex items-center justify-center relative backdrop-blur-sm">
+                    {/* Profile Image */}
+                    <div className="w-full h-full bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center relative">
                       <img 
                         src="/pic.jpeg"
-                        alt="Nikhil Saraogi - AI Artist"
-                        className="w-full h-full object-cover rounded-full"
+                        alt="Nikhil Saraogi Profile"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
+                      {/* Multi-layered AI scanning effects */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse"></div>
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent animate-pulse" style={{ animationDelay: '1s' }}></div>
+                      <div className="absolute inset-0 bg-gradient-to-l from-transparent via-cyber/5 to-transparent animate-pulse" style={{ animationDelay: '2s' }}></div>
                       
-                      {/* Artistic overlay */}
-                      <div className="absolute inset-0 rounded-full shimmer opacity-20" />
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/10 to-transparent" />
+                      {/* Holographic border effect */}
+                      <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-primary via-accent to-cyber bg-clip-border animate-spin" style={{ animationDuration: '8s' }}></div>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Neural Network Connections */}
+              <div className="absolute inset-0 pointer-events-none">
+                {[...Array(8)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse"
+                    style={{
+                      left: `${20 + (i * 60 / 8)}%`,
+                      top: `${Math.sin(i) * 20 + 50}%`,
+                      transform: `rotate(${i * 45}deg)`,
+                      animationDelay: `${i * 0.2}s`
+                    }}
+                  />
+                ))}
               </div>
             </div>
           </div>
