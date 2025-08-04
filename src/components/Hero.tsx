@@ -38,17 +38,14 @@ const Hero = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-primary rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 4}s`
-            }}
-          />
-        ))}
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '10%', top: '20%', animationDelay: '0s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '25%', top: '40%', animationDelay: '1s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '45%', top: '15%', animationDelay: '2s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '60%', top: '35%', animationDelay: '3s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '80%', top: '25%', animationDelay: '4s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '15%', top: '60%', animationDelay: '5s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '35%', top: '80%', animationDelay: '0.5s' }} />
+        <div className="absolute w-1 h-1 bg-primary rounded-full animate-float" style={{ left: '70%', top: '70%', animationDelay: '1.5s' }} />
       </div>
 
       <div className="container mx-auto px-4 z-10">
@@ -137,58 +134,37 @@ const Hero = () => {
               {/* Artistic floating elements */}
               <div className="absolute inset-0 z-5 pointer-events-none">
                 {/* Floating geometric shapes */}
-                {[...Array(6)].map((_, i) => (
-                  <div
-                    key={`shape-${i}`}
-                    className="absolute w-2 h-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full animate-float opacity-60"
-                    style={{
-                      left: `${15 + i * 15}%`,
-                      top: `${20 + Math.sin(i) * 30}%`,
-                      animationDelay: `${i * 0.8}s`,
-                      animationDuration: `${6 + i}s`
-                    }}
-                  />
-                ))}
+                <div className="absolute w-2 h-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full animate-float opacity-60" style={{ left: '15%', top: '20%', animationDelay: '0s' }} />
+                <div className="absolute w-2 h-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full animate-float opacity-60" style={{ left: '30%', top: '35%', animationDelay: '0.8s' }} />
+                <div className="absolute w-2 h-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full animate-float opacity-60" style={{ left: '45%', top: '15%', animationDelay: '1.6s' }} />
+                <div className="absolute w-2 h-2 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full animate-float opacity-60" style={{ left: '60%', top: '40%', animationDelay: '2.4s' }} />
                 
                 {/* Artistic light rays */}
-                {[...Array(4)].map((_, i) => (
-                  <div
-                    key={`ray-${i}`}
-                    className="absolute w-px h-16 bg-gradient-to-t from-transparent via-primary/20 to-transparent animate-pulse"
-                    style={{
-                      left: `${25 + i * 20}%`,
-                      top: `${10 + i * 10}%`,
-                      transform: `rotate(${i * 30}deg)`,
-                      animationDelay: `${i * 1.5}s`
-                    }}
-                  />
-                ))}
+                <div className="absolute w-px h-16 bg-gradient-to-t from-transparent via-primary/20 to-transparent animate-pulse" style={{ left: '25%', top: '10%', transform: 'rotate(0deg)', animationDelay: '0s' }} />
+                <div className="absolute w-px h-16 bg-gradient-to-t from-transparent via-primary/20 to-transparent animate-pulse" style={{ left: '45%', top: '20%', transform: 'rotate(30deg)', animationDelay: '1.5s' }} />
+                <div className="absolute w-px h-16 bg-gradient-to-t from-transparent via-primary/20 to-transparent animate-pulse" style={{ left: '65%', top: '30%', transform: 'rotate(60deg)', animationDelay: '3s' }} />
               </div>
 
               {/* Enhanced tech stack badges with better positioning */}
               <div className="absolute inset-0 z-10">
-                {[
-                  { text: 'Python', position: 'top-6 left-6', color: 'bg-gradient-to-r from-primary/80 to-primary/60', delay: 0 },
-                  { text: 'AI/ML', position: 'top-16 right-8', color: 'bg-gradient-to-r from-accent/80 to-accent/60', delay: 0.5 },
-                  { text: 'LLMs', position: 'top-1/3 left-2', color: 'bg-gradient-to-r from-secondary/80 to-secondary/60', delay: 1 },
-                  { text: 'FastAPI', position: 'bottom-20 left-6', color: 'bg-gradient-to-r from-primary/80 to-primary/60', delay: 1.5 },
-                  { text: 'Data Science', position: 'bottom-6 right-6', color: 'bg-gradient-to-r from-accent/80 to-accent/60', delay: 2 },
-                  { text: 'VectorDB', position: 'top-1/2 right-4', color: 'bg-gradient-to-r from-secondary/80 to-secondary/60', delay: 2.5 },
-                  { text: 'MongoDB', position: 'bottom-1/3 left-8', color: 'bg-gradient-to-r from-primary/80 to-primary/60', delay: 3 },
-                  { text: 'Flask', position: 'top-20 left-20', color: 'bg-gradient-to-r from-accent/80 to-accent/60', delay: 3.5 }
-                ].map((badge, index) => (
-                  <Badge
-                    key={index}
-                    className={`absolute ${badge.position} ${badge.color} backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full`}
-                    style={{ 
-                      animationDelay: `${badge.delay}s`,
-                      animationDuration: `${5 + Math.random() * 3}s`,
-                      boxShadow: '0 8px 32px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.2)'
-                    }}
-                  >
-                    {badge.text}
-                  </Badge>
-                ))}
+                <Badge className="absolute top-6 left-6 bg-gradient-to-r from-primary/80 to-primary/60 backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full" style={{ animationDelay: '0s' }}>
+                  Python
+                </Badge>
+                <Badge className="absolute top-16 right-8 bg-gradient-to-r from-accent/80 to-accent/60 backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full" style={{ animationDelay: '0.5s' }}>
+                  AI/ML
+                </Badge>
+                <Badge className="absolute top-1/3 left-2 bg-gradient-to-r from-secondary/80 to-secondary/60 backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full" style={{ animationDelay: '1s' }}>
+                  LLMs
+                </Badge>
+                <Badge className="absolute bottom-20 left-6 bg-gradient-to-r from-primary/80 to-primary/60 backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full" style={{ animationDelay: '1.5s' }}>
+                  FastAPI
+                </Badge>
+                <Badge className="absolute bottom-6 right-6 bg-gradient-to-r from-accent/80 to-accent/60 backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full" style={{ animationDelay: '2s' }}>
+                  Data Science
+                </Badge>
+                <Badge className="absolute top-1/2 right-4 bg-gradient-to-r from-secondary/80 to-secondary/60 backdrop-blur-md border border-white/30 animate-float shadow-xl hover:scale-110 transition-all duration-500 text-white font-medium text-xs px-3 py-1.5 rounded-full" style={{ animationDelay: '2.5s' }}>
+                  VectorDB
+                </Badge>
               </div>
 
               {/* Enhanced Central Profile Area */}
@@ -217,18 +193,11 @@ const Hero = () => {
 
               {/* Neural Network Connections */}
               <div className="absolute inset-0 pointer-events-none">
-                {[...Array(8)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse"
-                    style={{
-                      left: `${20 + (i * 60 / 8)}%`,
-                      top: `${Math.sin(i) * 20 + 50}%`,
-                      transform: `rotate(${i * 45}deg)`,
-                      animationDelay: `${i * 0.2}s`
-                    }}
-                  />
-                ))}
+                <div className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" style={{ left: '20%', top: '50%', transform: 'rotate(0deg)', animationDelay: '0s' }} />
+                <div className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" style={{ left: '28%', top: '70%', transform: 'rotate(45deg)', animationDelay: '0.2s' }} />
+                <div className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" style={{ left: '35%', top: '30%', transform: 'rotate(90deg)', animationDelay: '0.4s' }} />
+                <div className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" style={{ left: '65%', top: '60%', transform: 'rotate(135deg)', animationDelay: '0.6s' }} />
+                <div className="absolute w-px h-12 bg-gradient-to-b from-primary/50 to-transparent animate-pulse" style={{ left: '75%', top: '40%', transform: 'rotate(180deg)', animationDelay: '0.8s' }} />
               </div>
             </div>
           </div>
