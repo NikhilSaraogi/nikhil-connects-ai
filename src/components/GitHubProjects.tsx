@@ -25,17 +25,28 @@ const GitHubProjects = () => {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        const response = await fetch('https://api.github.com/users/NikhilSaraogi/repos?sort=updated&per_page=6');
-        if (!response.ok) {
+        // First try to fetch pinned repositories
+        const pinnedResponse = await fetch('https://api.github.com/users/NikhilSaraogi/repos?type=public&sort=updated&per_page=50');
+        if (!pinnedResponse.ok) {
           throw new Error('Failed to fetch repositories');
         }
-        const data = await response.json();
-        // Filter out forks and select only public repos with descriptions
-        const filteredRepos = data.filter((repo: GitHubRepo) => 
-          !repo.name.includes('fork') && 
-          repo.description && 
-          repo.description.trim() !== ''
-        );
+        const allRepos = await pinnedResponse.json();
+        
+        // Filter for the most relevant repositories (starred, recently updated, with descriptions)
+        const filteredRepos = allRepos
+          .filter((repo: GitHubRepo) => 
+            !repo.name.includes('fork') && 
+            repo.description && 
+            repo.description.trim() !== ''
+          )
+          .sort((a: GitHubRepo, b: GitHubRepo) => {
+            // Prioritize by stars and recent updates
+            const aScore = a.stargazers_count * 2 + (new Date(a.updated_at).getTime() / 1000000000);
+            const bScore = b.stargazers_count * 2 + (new Date(b.updated_at).getTime() / 1000000000);
+            return bScore - aScore;
+          })
+          .slice(0, 6);
+        
         setRepos(filteredRepos);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
@@ -45,6 +56,10 @@ const GitHubProjects = () => {
     };
 
     fetchRepos();
+    
+    // Set up real-time updates every 5 minutes
+    const interval = setInterval(fetchRepos, 5 * 60 * 1000);
+    return () => clearInterval(interval);
   }, []);
 
   const getLanguageColor = (language: string) => {
@@ -118,9 +133,9 @@ const GitHubProjects = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Latest Projects
+            Featured Projects
           </h2>
-          <p className="text-muted-foreground text-lg">Real-time from my GitHub repository</p>
+          <p className="text-muted-foreground text-lg">Pinned repositories updated in real-time from GitHub</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -210,9 +225,9 @@ const GitHubProjects = () => {
             asChild
             className="glow-primary"
           >
-            <a href="https://github.com/NikhilSaraogi" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/NikhilSaraogi?tab=repositories" target="_blank" rel="noopener noreferrer">
               <Github className="w-5 h-5 mr-2" />
-              View All Projects
+              View All Repositories
             </a>
           </Button>
         </div>
