@@ -6,10 +6,10 @@ import { Github, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 const Hero = () => {
   const [displayText, setDisplayText] = useState('');
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  
+
   const phrases = [
     'Backend Engineer',
-    'Data Scientist', 
+    'Data Scientist',
     'AI Explorer',
     'Learning Enthusiast'
   ];
@@ -17,7 +17,7 @@ const Hero = () => {
   useEffect(() => {
     const phrase = phrases[currentPhraseIndex];
     let currentIndex = 0;
-    
+
     const typewriter = setInterval(() => {
       if (currentIndex <= phrase.length) {
         setDisplayText(phrase.slice(0, currentIndex));
@@ -71,8 +71,8 @@ const Hero = () => {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Backend engineer who loves to explore AI — from building scalable microservices 
-              and distributed systems to architecting agentic LLM workflows. Passionate about 
+              Backend engineer who loves to explore AI — from building scalable microservices
+              and distributed systems to architecting agentic LLM workflows. Passionate about
               learning new technologies and turning complex industrial problems into elegant solutions.
             </p>
 
@@ -100,7 +100,7 @@ const Hero = () => {
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="hover:glow-accent transition-smooth" asChild>
-                <a href="https://drive.google.com/file/d/1M3DlqNXsKOafchLmyF6iKei8NJAQIYHe/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1YsCtUzY8kjPTa0iVY4a_OlGi6muku5VR/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                   📄 Download CV
                 </a>
               </Button>
@@ -133,7 +133,7 @@ const Hero = () => {
           <div className="relative animate-slide-in-right">
             <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-cyber/20 rounded-full animate-pulse-glow" />
-              
+
               <div className="absolute inset-0">
                 {[
                   { text: 'Python', position: 'top-4 left-4', color: 'bg-accent' },
@@ -160,7 +160,7 @@ const Hero = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-48 h-48 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-primary/40 shadow-2xl hover:border-accent/40 transition-all duration-300">
                   <div className="w-44 h-44 rounded-full overflow-hidden bg-gradient-to-br from-card to-muted border-2 border-border/30 flex items-center justify-center relative">
-                    <img 
+                    <img
                       src="/pic.jpeg"
                       alt="Nikhil Saraogi - Backend Engineer & AI Explorer"
                       className="w-full h-full object-cover rounded-full"

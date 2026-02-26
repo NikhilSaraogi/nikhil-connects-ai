@@ -26,12 +26,12 @@ const Index = () => {
           <Contact />
         </section>
       </main>
-      
+
       <footer className="bg-card/50 border-t border-border/50 py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <p className="text-muted-foreground">
-              © 2024 Nikhil Saraogi. Built with React, TypeScript & Tailwind CSS.
+              © 2026 Nikhil Saraogi. Built with React, TypeScript & Tailwind CSS.
             </p>
             <p className="text-sm text-muted-foreground mt-2">
               Backend Engineer | AI Explorer | Learning Enthusiast
