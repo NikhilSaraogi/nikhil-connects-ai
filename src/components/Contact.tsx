@@ -23,11 +23,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Create mailto link with form data
     const mailtoLink = `mailto:nikhilsarawgi9616@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
       `Hi Nikhil,\n\nName: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )}`;
-    window.location.href = mailtoLink;
+    window.open(mailtoLink, '_blank');
   };
 
   const contactInfo = [
@@ -206,17 +205,14 @@ const Contact = () => {
                       key={index}
                       variant="outline"
                       size="icon"
-                      asChild
-                      className={`transition-all duration-300 ${social.color} hover:glow-primary`}
+                      className={`transition-all duration-300 ${social.color} hover:glow-primary cursor-pointer`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        window.open(social.url, '_blank');
+                      }}
+                      aria-label={social.name}
                     >
-                      <a 
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={social.name}
-                      >
-                        {social.icon}
-                      </a>
+                      {social.icon}
                     </Button>
                   ))}
                 </div>
