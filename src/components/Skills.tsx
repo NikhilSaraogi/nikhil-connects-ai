@@ -1,84 +1,66 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
-import { Code, Database, Brain, Wrench, GraduationCap, Globe } from 'lucide-react';
+import { Code, Database, Brain, Wrench, Globe, GraduationCap } from 'lucide-react';
 
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Programming Languages',
+      title: 'Backend & Systems',
       icon: <Code className="w-6 h-6" />,
       skills: [
-        { name: 'Python', level: 95, color: 'bg-green-500' },
-        { name: 'Java', level: 85, color: 'bg-orange-500' },
-        { name: 'C++', level: 80, color: 'bg-blue-600' },
-        { name: 'SQL', level: 90, color: 'bg-blue-500' },
-        { name: 'JavaScript', level: 75, color: 'bg-yellow-500' }
+        'Python', "OOP's", 'REST APIs', 'Asynchronous Programming', 'WebSockets',
+        'Multithreading', 'Microservices Architecture', 'Concurrency Control',
+        'Distributed Systems Fundamentals'
       ]
     },
     {
-      title: 'AI & Machine Learning',
+      title: 'AI & Data Systems',
       icon: <Brain className="w-6 h-6" />,
       skills: [
-        { name: 'Large Language Models', level: 90, color: 'bg-primary' },
-        { name: 'Deep Learning', level: 85, color: 'bg-purple-500' },
-        { name: 'Time Series Analysis', level: 90, color: 'bg-green-600' },
-        { name: 'Computer Vision', level: 80, color: 'bg-pink-500' },
-        { name: 'MLOps', level: 85, color: 'bg-indigo-500' }
+        'Machine Learning', 'Time-Series Modeling', 'Deep Learning', 'Embeddings',
+        'Semantic Search', 'Agentic LLM Systems', 'RAG Architecture',
+        'MCP (Model Context Protocol)', 'Google ADK', 'Ollama'
       ]
     },
     {
-      title: 'Databases & Tools',
+      title: 'Databases & Streaming',
       icon: <Database className="w-6 h-6" />,
       skills: [
-        { name: 'MongoDB', level: 90, color: 'bg-green-500' },
-        { name: 'Redis', level: 85, color: 'bg-red-500' },
-        { name: 'ChromaDB', level: 85, color: 'bg-blue-400' },
-        { name: 'Qdrant', level: 80, color: 'bg-purple-400' },
-        { name: 'PostgreSQL', level: 85, color: 'bg-blue-600' }
+        'MongoDB (NoSQL)', 'Redis', 'MQTT', 'ETL',
+        'Vector Databases (Qdrant, ChromaDB)'
       ]
     },
     {
-      title: 'Frameworks & Libraries',
-      icon: <Wrench className="w-6 h-6" />,
-      skills: [
-        { name: 'FastAPI', level: 95, color: 'bg-green-400' },
-        { name: 'Flask', level: 85, color: 'bg-blue-500' },
-        { name: 'React', level: 70, color: 'bg-cyan-400' },
-        { name: 'Pandas', level: 95, color: 'bg-purple-600' },
-        { name: 'Scikit-learn', level: 90, color: 'bg-orange-500' }
-      ]
-    },
-    {
-      title: 'Specialized Technologies',
+      title: 'Web & Frameworks',
       icon: <Globe className="w-6 h-6" />,
       skills: [
-        { name: 'MQTT', level: 90, color: 'bg-green-500' },
-        { name: 'Vector Databases', level: 85, color: 'bg-primary' },
-        { name: 'Grafana', level: 85, color: 'bg-orange-600' },
-        { name: 'Docker', level: 80, color: 'bg-blue-500' },
-        { name: 'Git', level: 90, color: 'bg-gray-600' }
+        'FastAPI', 'Django', 'Flask', 'Streamlit', 'HTML'
       ]
     },
     {
-      title: 'Domain Knowledge',
+      title: 'IDE & Tools',
+      icon: <Wrench className="w-6 h-6" />,
+      skills: [
+        'Git', 'Docker (Basic)', 'Postman', 'Jupyter', 'Colab',
+        'Grafana', 'Antigravity', 'Gemini/Quen CLI'
+      ]
+    },
+    {
+      title: 'Domain Expertise',
       icon: <GraduationCap className="w-6 h-6" />,
       skills: [
-        { name: 'Power Plant Operations', level: 95, color: 'bg-yellow-600' },
-        { name: 'Industrial IoT', level: 90, color: 'bg-blue-500' },
-        { name: 'Agentic AI Systems', level: 85, color: 'bg-primary' },
-        { name: 'Data Engineering', level: 90, color: 'bg-green-500' },
-        { name: 'Model Context Protocol', level: 85, color: 'bg-purple-500' }
+        'Oil & Gas / Power Plants', 'Industrial IoT', 'Predictive Maintenance',
+        'Agent Orchestration Systems', 'Voice AI Systems (Learning)'
       ]
     }
   ];
 
   const achievements = [
-    'Rs. 6.5 Cr+ total cost savings delivered through AI solutions',
+    '₹6.5 Cr+ total cost savings delivered through AI & backend solutions',
     '60% reduction in unplanned power plant outages',
     '40% improvement in boiler efficiency systems',
-    '99%+ data quality in industrial analytics pipelines',
-    '15+ engineers trained in data science methodologies'
+    '99%+ data reliability in industrial analytics pipelines',
+    '15+ engineers mentored in AI and backend architecture'
   ];
 
   return (
@@ -89,7 +71,7 @@ const Skills = () => {
             Skills & Expertise
           </h2>
           <p className="text-muted-foreground text-lg">
-            Specialized in AI, Data Science, and Industrial Applications
+            Backend Engineering, AI Systems & Industrial Applications
           </p>
         </div>
 
@@ -109,22 +91,18 @@ const Skills = () => {
                   {category.title}
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.level}%</span>
-                    </div>
-                    <Progress 
-                      value={skill.level} 
-                      className="h-2"
-                      style={{ 
-                        '--progress-foreground': `hsl(var(--primary))` 
-                      } as React.CSSProperties}
-                    />
-                  </div>
-                ))}
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <Badge 
+                      key={skillIndex} 
+                      variant="outline"
+                      className="hover:bg-primary/10 hover:border-primary/50 transition-colors cursor-default"
+                    >
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
               </CardContent>
             </Card>
           ))}
@@ -170,9 +148,9 @@ const Skills = () => {
           <h3 className="text-2xl font-bold mb-8 text-cyber">Technology Stack</h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
-              'Python', 'FastAPI', 'LLMs', 'Vector DBs', 'MongoDB', 'Redis', 
-              'Machine Learning', 'Deep Learning', 'MQTT', 'Grafana', 
-              'Data Science', 'MLOps', 'Industrial IoT', 'Agentic AI'
+              'Python', 'FastAPI', 'Django', 'LLMs', 'Google ADK', 'RAG',
+              'MongoDB', 'Redis', 'Qdrant', 'MQTT', 'Grafana', 
+              'Microservices', 'Agentic AI', 'Industrial IoT', 'MCP'
             ].map((tech, index) => (
               <Badge 
                 key={index} 

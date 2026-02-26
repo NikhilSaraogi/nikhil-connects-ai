@@ -1,36 +1,36 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Code2, Database, Zap, Award, Users } from 'lucide-react';
+import { Brain, Code2, Database, Zap, Award } from 'lucide-react';
 
 const About = () => {
   const highlights = [
     {
-      icon: Brain,
-      title: "AI & Machine Learning",
-      description: "Expert in LLMs, transformers, and agentic workflows with practical industrial applications"
+      icon: Code2,
+      title: "Backend Engineering",
+      description: "0→1 backend architect — Python, FastAPI, Django, microservices, REST APIs, WebSockets, and distributed systems"
     },
     {
-      icon: Code2,
-      title: "Full-Stack Development", 
-      description: "Python, FastAPI, React with microservices architecture and distributed computing"
+      icon: Brain,
+      title: "AI & Agentic Systems", 
+      description: "Agentic LLM systems, RAG architecture, Google ADK, MCP, semantic search, and multi-agent orchestration"
     },
     {
       icon: Database,
-      title: "Data Engineering",
-      description: "Vector databases, MongoDB, Redis with real-time data pipelines and analytics"
+      title: "Data & Streaming",
+      description: "MongoDB, Redis, Qdrant, ChromaDB, MQTT streaming, ETL pipelines, and real-time telemetry processing"
     },
     {
       icon: Zap,
-      title: "Industrial IoT",
-      description: "MQTT, SCADA integration, predictive maintenance for power plants and manufacturing"
+      title: "Industrial IoT & Domain",
+      description: "Power plants, Oil & Gas, predictive maintenance, SCADA/DCS integration, and Grafana monitoring"
     }
   ];
 
   const achievements = [
-    { metric: "Rs. 6.5 Cr+", label: "Annual Cost Savings Delivered" },
+    { metric: "₹6.5 Cr+", label: "Annual Cost Savings Delivered" },
     { metric: "60%", label: "Reduction in Unplanned Outages" },
-    { metric: "99%+", label: "Data Quality Achieved" },
-    { metric: "15+", label: "Engineers Trained" }
+    { metric: "99%+", label: "Data Reliability Achieved" },
+    { metric: "15+", label: "Engineers Mentored" }
   ];
 
   return (
@@ -44,16 +44,17 @@ const About = () => {
             </h2>
             <div className="max-w-4xl mx-auto">
               <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                I'm a passionate <span className="text-primary font-semibold">Data Scientist and AI Engineer</span> at ExactSpace Technologies, 
-                where I architect next-generation industrial AI solutions. With expertise spanning from 
-                <span className="text-accent font-semibold"> LLMs and transformers</span> to 
-                <span className="text-cyber font-semibold"> real-time IoT systems</span>, I bridge the gap between 
-                cutting-edge AI research and practical industrial applications.
+                I'm a <span className="text-primary font-semibold">Backend Engineer & Data Scientist</span> at ExactSpace Technologies, 
+                with a deep love for exploring AI. From designing 
+                <span className="text-accent font-semibold"> scalable microservices and distributed systems</span> to building 
+                <span className="text-cyber font-semibold"> agentic LLM workflows</span>, I thrive at the intersection of 
+                backend engineering and artificial intelligence.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                My work involves developing <span className="text-primary font-semibold">agentic AI systems</span>, 
-                building scalable data pipelines, and creating intelligent monitoring solutions that have delivered 
-                significant cost savings and operational improvements across power plants and manufacturing facilities.
+                A <span className="text-primary font-semibold">learning enthusiast</span> at heart — I'm always exploring new technologies, 
+                whether it's Voice AI systems, offline-first AI infrastructure for air-gapped environments, 
+                or multi-agent orchestration with Google ADK. I believe in turning complex industrial problems 
+                into elegant, production-ready solutions.
               </p>
             </div>
           </div>
@@ -122,15 +123,16 @@ const About = () => {
                 </div>
                 <div className="flex-1">
                   <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyber to-primary bg-clip-text text-transparent">
-                    Current Focus: Agentic AI & LLM Systems
+                    Currently Exploring: Agentic AI & Offline-First Systems
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
-                    I'm currently pioneering the development of <span className="text-cyber font-semibold">Clarity Engine</span> - 
-                    an advanced agentic LLM system using Model Context Protocol (MCP) and transformer-based RAG architecture. 
-                    This system enables secure, real-time natural language interactions with complex industrial data.
+                    Leading development of the next-generation <span className="text-cyber font-semibold">Clarity Engine</span> for 
+                    air-gapped Oil & Gas environments — designing offline-first AI infrastructure using Google ADK, 
+                    building secure, locally hosted agents with Ollama capable of operating in fully isolated industrial networks.
+                    Also exploring <span className="text-primary font-semibold">Voice AI Systems</span> as the next frontier.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['MCP (Model Context Protocol)', 'Transformer RAG', 'Vector Databases', 'Agentic Workflows', 'Industrial AI'].map((tech) => (
+                    {['Google ADK', 'Agentic Workflows', 'Ollama', 'RAG Pipeline', 'Voice AI (Learning)', 'Air-gapped AI'].map((tech) => (
                       <Badge key={tech} variant="outline" className="hover:bg-cyber/10 hover:border-cyber/50 transition-colors">
                         {tech}
                       </Badge>
