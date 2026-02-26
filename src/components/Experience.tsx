@@ -5,39 +5,46 @@ import { MapPin, Calendar, Building } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      title: 'Data Scientist',
+      title: 'Backend Engineer | Data Scientist',
       company: 'ExactSpace Technologies Pvt. Ltd.',
+      companyUrl: 'https://exactspace.co/',
       location: 'Bengaluru, India',
       period: 'June 2023 — Present',
       type: 'Full-time',
       achievements: [
-        'Led end-to-end product onboarding for power plants—architected scalable backend services and UIs using Python, and REST APIs; improved onboarding speed by 40%.',
-        'Developed high-performance Python microservices leveraging distributed computing for real-time Boiler & Turbine Efficiency—reduced unplanned outages by 60%.',
-        'Engineered robust data integration pipelines to harmonize OPC tag metadata and telemetry; ensured >99% data quality for analytics with advanced validation.',
-        'Designed the Boiler Manager module with proprietary health-scoring (statistical algorithms); reduced tube leakages by 40% and delivered Rs. 2 Cr annual cost savings.',
-        'Built ML models (time series, clustering, GLM) to drive anode optimization for Aditya Birla Group; reduced anode rejection rates by 30% through early defect detection.',
-        'Spearheaded Clarity Engine: built agentic LLM-powered chatbot using MCP, Transformer-based RAG, vector DB\'s; enabled secure, real-time natural-language Q&A over plant data.'
+        'Served as a 0→1 backend architect for industrial AI platforms—designed and productionized scalable microservices powering real-time analytics across multiple power plants; improved enterprise onboarding velocity by 40%.',
+        'Architected distributed data ingestion pipelines processing high-frequency telemetry via MQTT and streaming workflows; implemented rigorous validation and metadata harmonization frameworks achieving >99% data reliability for mission-critical decision systems.',
+        'Designed and deployed a proprietary Boiler Health Scoring Engine combining statistical modeling and domain-specific physics models; reduced tube leak incidents by 40%, generating ₹2 Cr annual cost savings.',
+        'Architected and deployed custom Grafana dashboards and automated alarm systems; integrated MQTT for early voice alerts—reduced mean time to detect critical failures by 50% and enabled real-time KPI monitoring.',
+        'Led applied research for Adani Power—developed the Vacuum Saving Model and HP Heater Optimization system using hybrid ML/physics-based models; saved ₹4.5 Cr annually.',
+        'Developed time-series forecasting, clustering, and regression models to optimize anode performance for enterprise manufacturing clients; reduced anode rejection rates by 30% and increased density by 25%.',
+        'Mentored 15+ engineers and business stakeholders in applied AI, backend architecture, and data-driven decision systems—accelerating adoption of AI-first engineering practices across teams.',
+        'Integrated an agentic LLM framework into the core product using Google ADK; architected multi-agent orchestration workflows (Analysis Agent, Discovery Agent, Task Agent) enabling modular, tool-augmented reasoning across industrial datasets.',
+        'Leading development of the next-generation Clarity Engine for air-gapped Oil & Gas environments—designing offline-first AI infrastructure using Google ADK; building secure, locally hosted agents capable of operating in fully isolated industrial networks.',
+        'Architected a production-grade RAG pipeline for automated DCS/SCADA tag standardization—implemented semantic embedding workflows using Sentence Transformers and Qdrant vector storage to map raw control-system tags to a structured meta-dictionary with high semantic accuracy.',
+        'Developed a document-based Question-Answering system leveraging vector embeddings and retrieval orchestration—enabled contextual knowledge extraction from technical manuals, SOPs, and plant documentation for real-time operational intelligence.'
       ],
       techStack: [
-        'Python', 'FastAPI', 'Machine Learning', 'LLMs', 'Vector Databases', 
-        'MongoDB', 'Redis', 'MQTT', 'Grafana', 'Data Science'
+        'Python', 'FastAPI', 'Django', 'REST APIs', 'Microservices', 'MQTT',
+        'MongoDB', 'Redis', 'Qdrant', 'ChromaDB', 'Google ADK',
+        'LLMs', 'RAG', 'Agentic AI', 'Grafana', 'Docker'
       ]
     },
     {
       title: 'Data Science Intern',
       company: 'ExactSpace Technologies Pvt. Ltd.',
+      companyUrl: 'https://exactspace.co/',
       location: 'Bengaluru, India',
       period: 'Aug 2022 — May 2023',
       type: 'Internship',
       achievements: [
-        'Developed real-time anomaly detection with Mosquitto, MQTT, and Python—enabling proactive maintenance across plants.',
-        'Prototyped MQTT edge solutions for condition monitoring; unified PLC, sensor, and SCADA data streams efficiently.',
-        'Applied advanced analytics—time series decomposition, feature engineering, supervised ML—to predict and prevent failures.',
-        'Automated multi-plant reporting (Python, Pandas, FPDF2); reduced manual reporting by 50% via smart PDF/Excel generation.'
+        'Engineered real-time anomaly detection pipelines integrating PLC, SCADA, and sensor streams via MQTT; enabled proactive asset monitoring across plants.',
+        'Designed predictive ML models using advanced time-series feature engineering and supervised learning to detect early equipment degradation.',
+        'Automated multi-plant reporting infrastructure (Python, Pandas); reduced manual effort by 50% via programmatic PDF/Excel generation.'
       ],
       techStack: [
         'Python', 'MQTT', 'Time Series Analysis', 'Machine Learning', 
-        'Pandas', 'Data Analytics', 'Industrial IoT'
+        'Pandas', 'Scikit-learn', 'Industrial IoT'
       ]
     }
   ];
@@ -52,7 +59,7 @@ const Experience = () => {
       achievement: 'Meritorious Award (3rd Rank) for Academic Achievement'
     },
     {
-      degree: 'Bachelor\'s in Computer Application (BCA)',
+      degree: "Bachelor's in Computer Application (BCA)",
       institution: 'Jiwaji University',
       location: 'Gwalior, Madhya Pradesh',
       period: 'June 2020',
@@ -60,7 +67,7 @@ const Experience = () => {
     },
     {
       degree: 'Higher Secondary Education',
-      institution: 'St. Mary\'s Inter College',
+      institution: "St. Mary's Inter College",
       location: 'Jhansi (U.P. Board)',
       period: 'June 2017',
       grade: '85.3%'
@@ -77,7 +84,7 @@ const Experience = () => {
               Professional Experience
             </h2>
             <p className="text-muted-foreground text-lg">
-              Building AI solutions and driving innovation in industrial applications
+              Building backend systems & AI solutions for industrial applications
             </p>
           </div>
 
@@ -94,7 +101,9 @@ const Experience = () => {
                       <CardTitle className="text-xl text-primary">{exp.title}</CardTitle>
                       <CardDescription className="flex items-center gap-2 text-lg mt-1">
                         <Building className="w-4 h-4" />
-                        {exp.company}
+                        <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                          {exp.company}
+                        </a>
                       </CardDescription>
                     </div>
                     <div className="flex flex-col lg:items-end gap-2 text-sm text-muted-foreground">
@@ -114,7 +123,6 @@ const Experience = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-6">
-                  {/* Achievements */}
                   <div>
                     <h4 className="font-semibold mb-3 text-accent">Key Achievements:</h4>
                     <ul className="space-y-2">
@@ -129,7 +137,6 @@ const Experience = () => {
                     </ul>
                   </div>
 
-                  {/* Tech Stack */}
                   <div>
                     <h4 className="font-semibold mb-3 text-cyber">Technologies:</h4>
                     <div className="flex flex-wrap gap-2">

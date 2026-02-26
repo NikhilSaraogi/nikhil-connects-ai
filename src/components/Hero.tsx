@@ -8,10 +8,10 @@ const Hero = () => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   
   const phrases = [
-    'Data Scientist',
-    'Software Engineer', 
-    'Python Developer',
-    'AI Researcher'
+    'Backend Engineer',
+    'Data Scientist', 
+    'AI Explorer',
+    'Learning Enthusiast'
   ];
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const Hero = () => {
           {/* Left side - Text content */}
           <div className="text-center lg:text-left space-y-6 animate-slide-in-left">
             <div className="space-y-4">
-              <p className="text-primary text-lg font-medium">🤖 Hello, I'm</p>
+              <p className="text-primary text-lg font-medium">🚀 Hello, I'm</p>
               <h1 className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-cyber to-accent bg-clip-text text-transparent">
                 Nikhil Saraogi
               </h1>
@@ -71,9 +71,9 @@ const Hero = () => {
             </div>
 
             <p className="text-lg text-muted-foreground max-w-2xl">
-              Specialized in building AI-powered solutions, LLM applications, and scalable 
-              data science systems. Currently architecting next-gen industrial AI at ExactSpace 
-              Technologies with expertise in transformers, vector databases, and agentic workflows.
+              Backend engineer who loves to explore AI — from building scalable microservices 
+              and distributed systems to architecting agentic LLM workflows. Passionate about 
+              learning new technologies and turning complex industrial problems into elegant solutions.
             </p>
 
             {/* Contact info */}
@@ -95,7 +95,7 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <Button variant="default" size="lg" className="glow-primary" asChild>
-                <a href="https://github.com/NikhilSaraogi" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/NikhilSaraogi?tab=repositories" target="_blank" rel="noopener noreferrer">
                   🚀 View Projects
                 </a>
               </Button>
@@ -134,22 +134,20 @@ const Hero = () => {
           {/* Right side - Clean Profile Display */}
           <div className="relative animate-slide-in-right">
             <div className="relative w-80 h-80 mx-auto lg:w-96 lg:h-96">
-              {/* Simple glowing orb background */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-accent/20 to-cyber/20 rounded-full animate-pulse-glow" />
               
-              {/* Tech stack badges floating around */}
               <div className="absolute inset-0">
                 {[
                   { text: 'Python', position: 'top-4 left-4', color: 'bg-accent' },
-                  { text: 'Data Science', position: 'top-1/4 left-2', color: 'bg-secondary' },
+                  { text: 'FastAPI', position: 'top-1/4 left-2', color: 'bg-secondary' },
                   { text: 'LLMs', position: 'top-8 right-8', color: 'bg-primary' },
-                  { text: 'MCP', position: 'bottom-4 left-48', color: 'bg-cyber' },
-                  { text: 'FastAPI', position: 'bottom-12 left-8', color: 'bg-secondary' },
-                  { text: 'ML/AI', position: 'bottom-4 right-4', color: 'bg-cyber' },
+                  { text: 'Google ADK', position: 'bottom-4 left-48', color: 'bg-cyber' },
+                  { text: 'Django', position: 'bottom-12 left-8', color: 'bg-secondary' },
+                  { text: 'RAG', position: 'bottom-4 right-4', color: 'bg-cyber' },
                   { text: 'MongoDB', position: 'left-4 top-1/2', color: 'bg-accent' },
                   { text: 'MQTT', position: 'top-4 left-40', color: 'bg-accent' },
-                  { text: 'Flask', position: 'top-1/2 right-8', color: 'bg-secondary' },
-                  { text: 'VectorDB', position: 'right-4 top-1/3', color: 'bg-primary' }
+                  { text: 'Qdrant', position: 'top-1/2 right-8', color: 'bg-secondary' },
+                  { text: 'Agentic AI', position: 'right-4 top-1/3', color: 'bg-primary' }
                 ].map((badge, index) => (
                   <Badge
                     key={index}
@@ -161,18 +159,14 @@ const Hero = () => {
                 ))}
               </div>
 
-              {/* Central profile area */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-48 h-48 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full flex items-center justify-center backdrop-blur-sm border-2 border-primary/40 shadow-2xl hover:border-accent/40 transition-all duration-300">
-                  {/* Profile Picture Container */}
                   <div className="w-44 h-44 rounded-full overflow-hidden bg-gradient-to-br from-card to-muted border-2 border-border/30 flex items-center justify-center relative">
                     <img 
                       src="/pic.jpeg"
-                      alt="Nikhil Saraogi - AI Developer"
+                      alt="Nikhil Saraogi - Backend Engineer & AI Explorer"
                       className="w-full h-full object-cover rounded-full"
                     />
-                    
-                    {/* Simple scanning overlay effect */}
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent animate-pulse rounded-full"></div>
                   </div>
                 </div>
