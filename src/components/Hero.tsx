@@ -123,10 +123,8 @@ const Hero = () => {
                   <Linkedin className="w-5 h-5" />
                 </a>
               </Button>
-              <Button variant="ghost" size="icon" className="hover:glow-cyber transition-smooth" asChild>
-                <a href="mailto:nikhilsarawgi9616@gmail.com">
-                  <Mail className="w-5 h-5" />
-                </a>
+              <Button variant="ghost" size="icon" className="hover:glow-cyber transition-smooth cursor-pointer" onClick={(e) => { e.stopPropagation(); window.open('mailto:nikhilsarawgi9616@gmail.com', '_blank'); }}>
+                <Mail className="w-5 h-5" />
               </Button>
             </div>
           </div>
